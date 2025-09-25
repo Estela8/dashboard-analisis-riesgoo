@@ -1,0 +1,12 @@
+# PyCharm
+.idea/
+
+# Entorno / variables
+.env
+
+# Datos privados
+data/*.csv
+
+# Archivos temporales Python
+*.pyc
+__pycache__/
