@@ -1,14 +1,14 @@
 
-import plotly.graph_objects as go
 import streamlit as st
-import pandas as pd
-import numpy as np
 import plotly.express as px
-
-
+import plotly.graph_objects as go
+import pandas as pd
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+
+    from src.kpis import calcular_kpis_vector, drawdown
+    from src.utils import generar_grafico_panel, categorizar_activos
     # --------------------------
     # Configuración de página
     st.set_page_config(page_title="📊 Dashboard Rentabilidad y Riesgo", layout="wide")
@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
     @st.cache_data
     def cargar_rentabilidades(tipo):
-        return pd.read_csv(f"rentabilidades_{tipo}.csv", index_col=0, parse_dates=True)
+        return pd.read_csv(f"data/rentabilidades_{tipo}.csv", index_col=0, parse_dates=True)
 
 
     rentabilidades = cargar_rentabilidades(tipo_rentabilidad)
